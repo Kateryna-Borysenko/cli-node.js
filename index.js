@@ -18,11 +18,11 @@ function invokeAction({ action, id, name, email, phone }) {
             break;
 
         case "add":
-            addContact();
+            addContact(name, email, phone);
             break;
 
         case "remove":
-            removeContact();
+            removeContact(id);
             break;
 
         default:

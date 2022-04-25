@@ -36,10 +36,12 @@ function removeContact(contactId) {
 
 function addContact(name, email, phone) {
     fs.readFile(contactsPath)
-        .then((data) => JSON.parse(data))
         .then((data) => {
-            const contact = [...data, { name, email, phone, id: nanoid() }];
-            fs.writeFile(contactsPath, JSON.stringify(contact));
+            return JSON.parse(data);
+        })
+        .then((data) => {
+            const newContacts = [...data, { id: nanoid(), name, email, phone }];
+            fs.writeFile(contactsPath, JSON.stringify(newContacts));
         })
         .catch((err) => console.log(err));
     listContacts();
