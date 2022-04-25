@@ -31,7 +31,7 @@ function removeContact(contactId) {
             fs.writeFile(contactsPath, JSON.stringify(contact));
         })
         .catch((err) => console.log(err));
-    listContacts();
+    setTimeout(() => { return listContacts() }, 1000) //для задержки, иначе не видно в console.table
 }
 
 function addContact(name, email, phone) {
@@ -44,7 +44,8 @@ function addContact(name, email, phone) {
             fs.writeFile(contactsPath, JSON.stringify(newContacts));
         })
         .catch((err) => console.log(err));
-    listContacts();
+    setTimeout(() => { return listContacts() }, 1000) //для задержки, иначе не видно в console.table
+
 }
 
 //module.export – объект, отвечающий за то, что именно будет экспортировать модуль при использовании require
