@@ -1,4 +1,36 @@
-# Домашнее задание 1
+# Results
+
+`Запусти команды в терминале и сделай отдельный скриншот результата выполнения каждой команды.`
+
+#### Получаем и выводим весь список контактов в виде таблицы (console.table)
+
+`node index.js --action list`
+
+<img src="./screen/list.png" width="900">
+<hr/>
+
+#### Получаем контакт по id
+
+`node index.js --action get --id 5`
+
+<img src="./screen/get.png" width="900">
+<hr/>
+
+#### Добавялем контакт
+
+`node index.js --action add --name Mango --email mango@gmail.com --phone 322-22-22`
+
+<img src="./screen/add.png" width="900">
+<hr/>
+
+### Удаляем контакт
+
+`node index.js --action remove --id=3`
+
+<img src="./screen/delete.png" width="900">
+<hr/>
+
+# Tasks
 
 ## Шаг 1
 
@@ -56,29 +88,29 @@ function addContact(name, email, phone) {
 
 ```js
 // index.js
-const argv = require('yargs').argv;
+const argv = require("yargs").argv;
 
 // TODO: рефакторить
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
-    case 'list':
+    case "list":
       // ...
       break;
 
-    case 'get':
+    case "get":
       // ... id
       break;
 
-    case 'add':
+    case "add":
       // ... name email phone
       break;
 
-    case 'remove':
+    case "remove":
       // ... id
       break;
 
     default:
-      console.warn('\x1B[31m Unknown action type!');
+      console.warn("\x1B[31m Unknown action type!");
   }
 }
 
@@ -88,14 +120,14 @@ invokeAction(argv);
 Так же, вы можете использовать модуль [commander](https://www.npmjs.com/package/commander) для парсинга аргументов командной строки. Это более популярная альтернатива модуля `yargs`
 
 ```js
-const { Command } = require('commander');
+const { Command } = require("commander");
 const program = new Command();
 program
-  .option('-a, --action <type>', 'choose action')
-  .option('-i, --id <type>', 'user id')
-  .option('-n, --name <type>', 'user name')
-  .option('-e, --email <type>', 'user email')
-  .option('-p, --phone <type>', 'user phone');
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
 
 program.parse(process.argv);
 
@@ -104,24 +136,24 @@ const argv = program.opts();
 // TODO: рефакторить
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
-    case 'list':
+    case "list":
       // ...
       break;
 
-    case 'get':
+    case "get":
       // ... id
       break;
 
-    case 'add':
+    case "add":
       // ... name email phone
       break;
 
-    case 'remove':
+    case "remove":
       // ... id
       break;
 
     default:
-      console.warn('\x1B[31m Unknown action type!');
+      console.warn("\x1B[31m Unknown action type!");
   }
 }
 
